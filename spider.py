@@ -9,4 +9,15 @@ for i in range(1,11):
     div_quote=div_col[0].find_all('div',attrs={"class":"quote"})
     for div in div_quote:
         text=div.find('span',{"class":"text"})
-        print(text.text)
+        quote=text.text
+        print("Quote:")
+        print(quote)
+        div_tags=div.find('div',{"class":"tags"})
+        tag=div_tags.find_all('a')
+        print("Tags:")
+        for t in tag:
+            try:
+                print(t.text)
+            except:
+                print("NO TAG")
+        print("\n")
